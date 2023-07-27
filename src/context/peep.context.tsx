@@ -12,6 +12,7 @@ export interface PeepContextType {
     data: UsersData | undefined,
     setData: React.Dispatch<React.SetStateAction<UsersData | undefined>>,
     filteredUsers: User[] | undefined,
+    setFilteredUsers: React.Dispatch<React.SetStateAction<User[] | undefined>>,
     userData: User[] | undefined,
     searchQuery: string,
     setSearchQuery: React.Dispatch<React.SetStateAction<string>>,
@@ -23,15 +24,10 @@ export const PeepContext = createContext<PeepContextType | null>(null);
 const PeepProvider = ({ children }: {children: React.ReactNode}) => {
     const [data, setData] = useState<UsersData | undefined>();
     const [pageNum, setPageNum] = useState<number>(1);
+    const [filteredUsers, setFilteredUsers] = useState<User[] | undefined>([]);
     const [searchQuery, setSearchQuery] = useState<string>('');
     
-  
-    //filter list based on user search query
-    const filteredUsers = data?.results.filter((user) => {
-      const { first, last } = user.name;
-      const fullName = `${first} ${last}`.toLowerCase();
-      return fullName.includes(searchQuery.toLowerCase());
-    });
+
   
     //fetch user data
     useEffect(() => {
@@ -51,6 +47,24 @@ const PeepProvider = ({ children }: {children: React.ReactNode}) => {
     }, [pageNum]); 
 
 
+    //search functionality
+    useEffect(() => {
+      // Function to filter users based on search query
+      const filterUsers = () => {
+        if (data) {
+          const filteredUsers = data.results.filter((user) => {
+            const { first, last } = user.name;
+            const fullName = `${first} ${last}`.toLowerCase();
+            return fullName.includes(searchQuery.toLowerCase());
+          });
+          setFilteredUsers(filteredUsers);
+        }
+      };
+  
+      filterUsers();
+    }, [searchQuery, data]);
+
+
     
     //return all data if no search
     const userData = !filteredUsers ? data?.results : filteredUsers
@@ -64,6 +78,7 @@ const PeepProvider = ({ children }: {children: React.ReactNode}) => {
             data,
             setData,
             filteredUsers,
+            setFilteredUsers,
             searchQuery,
             setSearchQuery,
             userData
@@ -74,6 +89,7 @@ const PeepProvider = ({ children }: {children: React.ReactNode}) => {
             data,
             setData,
             filteredUsers,
+            setFilteredUsers,
             searchQuery,
             setSearchQuery,
             userData,

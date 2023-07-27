@@ -1,19 +1,20 @@
 'use client'
 
 import React, { useState, useContext, useEffect } from 'react';
-import { User } from '@/types/userData'; 
 import { PeepContext, PeepContextType } from "@/context/peep.context"
 
 
 
 const UserFilter = () => {
-  const {data, userData} = useContext(PeepContext) as PeepContextType;
+  const {data, userData, setFilteredUsers} = useContext(PeepContext) as PeepContextType;
   
   const [ageRange, setAgeRange] = useState<{ min: number; max: number }>({ min: 0, max: 100 });
   const [nationality, setNationality] = useState<string | null>(null);
   const [gender, setGender] = useState<string | null>(null);
-  const [allNationalities, setAllNationalities] = useState<string[] | null>(null);
+  const [allNationalities, setAllNationalities] = useState<string[] | null>(null); // get all nationalities to be rendered in dropdown
 
+
+  //get all unique countries from data fetched
   useEffect(() => {
     // Function to extract unique values from an array
     const getUniqueValues = (arr: string[]) => {
@@ -22,7 +23,7 @@ const UserFilter = () => {
 
     if (userData) {
       // Extracting unique nationalities
-      const nationalitiesArr = userData.map((user) => user.nat);
+      const nationalitiesArr = userData.map((user) => user.location.country);
       setAllNationalities(getUniqueValues(nationalitiesArr));
     }
   }, [userData]);
@@ -30,10 +31,9 @@ const UserFilter = () => {
 
 
 
-
-
   const handleFilterChange = () => {
     let filteredUsers = data?.results;
+ 
 
     // Filter by age range
     filteredUsers = filteredUsers?.filter(
@@ -42,7 +42,7 @@ const UserFilter = () => {
 
     // Filter by nationality
     if (nationality) {
-      filteredUsers = filteredUsers?.filter((user) => user.nat === nationality);
+      filteredUsers = filteredUsers?.filter((user) => user.location.country === nationality);
     }
 
     // Filter by gender
@@ -50,7 +50,13 @@ const UserFilter = () => {
       filteredUsers = filteredUsers?.filter((user) => user.gender === gender);
     }
 
-    return filteredUsers
+
+    setFilteredUsers(filteredUsers);
+
+    //reset
+    setAgeRange({ min: 0, max: 100 });
+    setNationality(null)
+    setGender(null)
   };
 
   return (
@@ -60,6 +66,7 @@ const UserFilter = () => {
         <label className='text-white font-thin lg:text-base text-xs'>Age Range:</label>
         <input
           type="number"
+          inputMode='numeric'
           value={ageRange.min}
           onChange={(e) => setAgeRange({ ...ageRange, min: parseInt(e.target.value) })}
           className="lg:px-6 lg:py-4 px-[18px] py-3 text-sm lg:max-w-[100px] max-w-[80px] placeholder:font-thin placeholder:text-white focus:outline-none block w-full rounded-2xl border border-[#333] bg-bgLight text-white transition duration-300 focus:ring-1 focus:ring-primary"
@@ -68,6 +75,7 @@ const UserFilter = () => {
         <input
           type="number"
           value={ageRange.max}
+          inputMode='numeric'
           onChange={(e) => setAgeRange({ ...ageRange, max: parseInt(e.target.value) })}
           className="lg:px-6 lg:py-4 px-[18px] py-3 text-sm lg:max-w-[100px] max-w-[80px] placeholder:font-thin placeholder:text-white focus:outline-none block w-full rounded-2xl border border-[#333] bg-bgLight text-white transition duration-300 focus:ring-1 focus:ring-primary"
         />

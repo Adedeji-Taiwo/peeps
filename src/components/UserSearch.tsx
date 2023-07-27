@@ -14,7 +14,7 @@ const UserSearch = ():JSX.Element => {
     </div>
     <input
         type="text"
-        placeholder="Search by name"
+        placeholder="Search by name..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         className="lg:px-6 lg:py-4 px-[18px] py-3 text-sm placeholder:font-thin placeholder:text-white focus:outline-none block w-full rounded-2xl border border-[#333] bg-bgLight text-white transition duration-300 focus:ring-1 focus:ring-primary"

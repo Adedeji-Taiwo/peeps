@@ -8,7 +8,7 @@ const Card = ({ data }:{data:User}) => {
     const router = useRouter();
 
     return (
-        <tr   key={data.login.uuid} className={`border-2 border-bgLight rounded-2xl cursor-pointer font-thin md:px-5 w-full`} onClick={() => router.push(`/user-details/${data.id.value}`)}>
+        <tr   key={data.login.uuid} className={`border-2 border-bgLight rounded-2xl cursor-pointer font-thin md:px-5 w-full hover:bg-bgLight`} onClick={() => router.push(`/user-details/${data.id.value}`)}>
            
             <td className='flex items-center lg:gap-6 gap-4 lg:px-6 md:px-4 pr-14 pl-4 lg:py-5 py-3 font-normal whitespace-normal'>
                 <span className="lg:text-sm text-xs text-[#666]">
