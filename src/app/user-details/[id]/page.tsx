@@ -2,16 +2,13 @@
 
 import React, {useContext} from 'react'
 import { PeepContext, PeepContextType } from '@/context/peep.context'
-//import { useRouter } from 'next/router'
 import {Profile} from '@/components/index'
 
 
 
-const UserProfile = ():JSX.Element => {
+const UserProfile = ({params}: {params: {id:string}}):JSX.Element => {
     const {userData} = useContext(PeepContext) as PeepContextType;
-    //const router = useRouter();
-
-    const userDetail = userData?.filter(user => user.id.value === "1101776T")
+    const userDetail = userData?.filter(user => user.id.value === params.id)
 
   return (
     <><Profile userDetail={userDetail![0]} /></>
