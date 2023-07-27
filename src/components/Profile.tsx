@@ -3,6 +3,7 @@
 import React from 'react'
 import { useRouter } from 'next/navigation'
 import { User } from '@/types/userData'
+import Image from 'next/image'
 
 
 const Profile = ({userDetail}: {userDetail: User | undefined}) => {
@@ -24,9 +25,13 @@ const Profile = ({userDetail}: {userDetail: User | undefined}) => {
             <div className="w-full md:w-3/12 md:mx-2">
                 <div className="rounded-xl shadow-xl bg-bgLight p-3 border-t-4 border border-primary">
                     <div className="image overflow-hidden">
-                        <img className="h-auto w-full mx-auto"
-                            src={userDetail?.picture.large}
-                            alt="profile" />
+                        <Image 
+                            width={100}
+                            height={100}
+                             src={userDetail!.picture.large}
+                             alt="profile" 
+                             className="h-auto w-full mx-auto"
+                        />
                     </div>
                     <h1 className=" text-white font-bold text-xl leading-8 my-2">{`${userDetail?.name.first} ${userDetail?.name.last}`}</h1>
                     <h3 className="font-lg text-semibold leading-6 py-1">Country: {userDetail?.location.country}</h3>

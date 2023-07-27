@@ -1,3 +1,5 @@
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
+
 interface Location {
     street: {
       number: number;
@@ -44,9 +46,9 @@ interface Location {
   }
   
   interface Picture {
-    large: string;
-    medium: string;
-    thumbnail: string;
+    large: string | StaticImport;
+    medium: string | StaticImport;
+    thumbnail: string | StaticImport;
   }
   
   interface Id {

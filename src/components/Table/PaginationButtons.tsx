@@ -3,13 +3,13 @@ const PaginationButtons = ({ page, numPages, handleNext, handlePrev }: {page:num
     return (
       <div className="ml-auto flex lg:gap-5 gap-3 justify-end">
         {page > 1 && (
-          <button onClick={handlePrev} className="mt-12 lg:py-3 lg:px-6 py-2 px-[18px] bg-primary rounded-[40px]">
+          <button onClick={handlePrev} className="mt-12 lg:py-3 lg:px-6 py-2 px-[18px] bg-primary hover:bg-opacity-70 rounded-[40px]">
             Previous
           </button>
         )}
   
         {page < numPages && (
-          <button onClick={handleNext} className="mt-12 lg:py-3 lg:px-6 py-2 px-[18px] bg-primary rounded-[40px]">
+          <button onClick={handleNext} className="mt-12 lg:py-3 lg:px-6 py-2 px-[18px] bg-primary hover:bg-opacity-70 rounded-[40px]">
             Next
           </button>
         )}

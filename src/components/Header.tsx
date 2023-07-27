@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className="flex items-center justify-between w-full">
             <h1 className="lg:text-5xl text-3xl text-white font-black">Peeps</h1>
-            <button className="flex items-center lg:gap-[10px] gap-[7.5px] lg:py-3 lg:px-6 py-2 px-[18px] bg-primary rounded-[40px]">
+            <button className="flex items-center lg:gap-[10px] gap-[7.5px] lg:py-3 lg:px-6 py-2 px-[18px] bg-primary hover:bg-opacity-80 rounded-[40px]">
             <svg className="lg:w-6 lg:h-6 w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clipPath="url(#clip0_4534_1238)">
               <path d="M5 20C5 17.544 6.991 15.553 9.447 15.553H14.553C17.009 15.553 19 17.544 19 20" stroke="#696969" strokeWidth="1.4824" strokeLinecap="round" strokeLinejoin="round"/>

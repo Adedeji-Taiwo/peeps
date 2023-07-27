@@ -3,6 +3,7 @@
 import { User } from '@/types/userData';
 import { shortId } from '@/utils/utils';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 const Card = ({ data }:{data:User}) => {
     const router = useRouter();
@@ -14,7 +15,7 @@ const Card = ({ data }:{data:User}) => {
                 <span className="lg:text-sm text-xs text-[#666]">
                     {shortId(data.id.name ? data.id.name : "BBC")}
                 </span>
-                <img className="w-full h-auto max-w-[48px] rounded-lg" src={data.picture.thumbnail} alt={data.name.first} />
+                <Image width={48} height={48} className="w-full h-auto max-w-[48px] rounded-lg" src={data.picture.thumbnail} alt={data.name.first} />
               
             </td> 
         

@@ -108,7 +108,7 @@ const UserFilter = () => {
       </div>
      </div>
 
-      <button className="flex items-center lg:gap-[10px] gap-[7.5px] lg:py-3 lg:px-6 py-2 px-[18px] bg-primary rounded-[40px] lg:text-base text-sm text-primaryText font-extralight" onClick={handleFilterChange}>Apply Filters</button>
+      <button className="flex items-center lg:gap-[10px] gap-[7.5px] lg:py-3 lg:px-6 py-2 px-[18px] bg-primary rounded-[40px] lg:text-base text-sm text-primaryText font-extralight hover:bg-opacity-80 " onClick={handleFilterChange}>Apply Filters</button>
     </div>
   );
 };
