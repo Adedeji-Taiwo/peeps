@@ -34,7 +34,7 @@ const Profile = ({userDetail}: {userDetail: User | undefined}) => {
                         />
                     </div>
                     <h1 className=" text-white font-bold text-xl leading-8 my-2">{`${userDetail?.name.first} ${userDetail?.name.last}`}</h1>
-                    <h3 className="font-lg text-semibold leading-6 py-1">Country: {userDetail?.location.country}</h3>
+                    <h3 className="font-lg text-semibold leading-6 py-1">Age: {userDetail?.dob.age}</h3>
                     <ul
                         className=" bg-bgLight text-white hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                         <li className="flex items-center py-3">

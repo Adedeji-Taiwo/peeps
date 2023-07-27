@@ -8,10 +8,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 
 ## Screenshot
-![Screenshot]()
+![Screenshot](https://github.com/Adedeji-Taiwo/peeps/blob/main/public/Peep%20App.png)
   
   
-## Li
+## LiVe Link
 - Live link: https://peeps-mocha.vercel.app
 
 
