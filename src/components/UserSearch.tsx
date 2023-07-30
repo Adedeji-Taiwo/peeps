@@ -2,7 +2,8 @@
 
 import { useContext } from "react"
 import { PeepContext, PeepContextType } from "@/context/peep.context"
-import SearchIcon from '../../public/assets/icons/SearchIcon'
+import searchIcon from '../../public/assets/icons/searchIcon.svg'
+import Image from "next/image"
 
 const UserSearch = ():JSX.Element => {
     const {searchQuery, setSearchQuery} = useContext(PeepContext) as PeepContextType;
@@ -10,7 +11,7 @@ const UserSearch = ():JSX.Element => {
   return (
     <div className="relative flex items-center justify-start md:w-auto w-full z-10">
       <div className="absolute inset-y-0 right-0 flex items-center xl:pr-5 pr-3 pointer-events-none">
-      <SearchIcon />
+      <Image src={searchIcon} alt="search" priority/>
     </div>
     <input
         type="text"

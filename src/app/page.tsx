@@ -1,9 +1,10 @@
 'use client'
 
 import {useContext} from 'react'
+import Image from 'next/image'
 import { PeepContext, PeepContextType } from '@/context/peep.context'
 import { Header, Table, UserSearch, UserFilter, Button, Overlay } from "@/components"
-import FilterIcon from "../../public/assets/icons/FilterIcon"
+import filterIcon from '../../public/assets/icons/FilterIcon.svg'
 
 export default function Home() {
     const {openFilter, setOpenFilter} = useContext(PeepContext) as PeepContextType;
@@ -18,7 +19,11 @@ export default function Home() {
       <UserSearch />
       <span>OR</span>
       <Button type="button" onClick={() => setOpenFilter(true)} className='bg-primary'>
-          <FilterIcon />
+          <Image 
+            priority
+            src={filterIcon}
+            alt="filter icon"
+          />
           <span className="lg:text-base text-sm text-primaryText font-extralight">Apply Filters</span>
       </Button>
       <UserFilter />

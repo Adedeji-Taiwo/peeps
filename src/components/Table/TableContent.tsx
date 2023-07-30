@@ -1,7 +1,8 @@
 'use client'
 
 import { tableHeader } from '../../utils/utils'
-import { ArrowDown } from '../../../public/assets/icons/ArrowDown';
+import arrowDownIcon from '../../../public/assets/icons/arrowDownIcon.svg' 
+import Image from 'next/image';
 import PaginationButtons from './PaginationButtons';
 import { SkeletonLoader } from '..';
 import Card from './Card';
@@ -35,7 +36,7 @@ const TableContent = () => {
          <tr>  
              {tableHeader.map((item, index) => (
                  <th scope="col" className={`lg:pl-4 lg:pr-14 pl-3 md:pr-20 pr-14 py-4 font-light`} key={item}>
-                    {index === 3 ? <span className='flex items-center ml-2'>{item} <ArrowDown /></span> : item}
+                    {index === 3 ? <span className='flex items-center ml-2'>{item} <Image src={arrowDownIcon}  alt="arrow down" priority /></span> : item}
                  </th>
              ))}
          </tr>
