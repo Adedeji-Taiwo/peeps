@@ -16,6 +16,8 @@ export interface PeepContextType {
     userData: User[] | undefined,
     searchQuery: string,
     setSearchQuery: React.Dispatch<React.SetStateAction<string>>,
+    openFilter: boolean,
+    setOpenFilter: (value: React.SetStateAction<boolean>) => void,
 }
 
 export const PeepContext = createContext<PeepContextType | null>(null);
@@ -26,6 +28,7 @@ const PeepProvider = ({ children }: {children: React.ReactNode}) => {
     const [pageNum, setPageNum] = useState<number>(1);
     const [filteredUsers, setFilteredUsers] = useState<User[] | undefined>([]);
     const [searchQuery, setSearchQuery] = useState<string>('');
+    const [openFilter, setOpenFilter] = useState<boolean>(false);
     
 
   
@@ -81,7 +84,9 @@ const PeepProvider = ({ children }: {children: React.ReactNode}) => {
             setFilteredUsers,
             searchQuery,
             setSearchQuery,
-            userData
+            userData,
+            openFilter, 
+            setOpenFilter
         }),
         [
             pageNum,
@@ -93,6 +98,8 @@ const PeepProvider = ({ children }: {children: React.ReactNode}) => {
             searchQuery,
             setSearchQuery,
             userData,
+            openFilter, 
+            setOpenFilter
         ])
 
     return (

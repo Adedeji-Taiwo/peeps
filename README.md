@@ -11,7 +11,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ![Screenshot](https://github.com/Adedeji-Taiwo/peeps/blob/main/public/Peep%20App.png)
   
   
-## LiVe Link
+## LiVve Link
 - Live link: https://peeps-mocha.vercel.app
 
 
@@ -27,6 +27,10 @@ Below are the third party libraries used in this project:
 | React-Skeleton-Loader  | `react-skeleton-loader`  | 	A React library with beautiful, animated loading skeletons that automatically adatps to your app. |
 | TailwindCSS | `tailwindcss`  | A utility-first CSS framework for rapidly building custom designs |
 
+
+## Endpoint
+The API endpoint to fetch random user data is: `https://randomuser.me/api/
+`
 
 
 ## Features

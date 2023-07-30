@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-bg`}>
+      <body className={`${inter.className} relative bg-bg`}>
         <PeepProvider>
           {children}
         </PeepProvider>

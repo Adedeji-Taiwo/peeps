@@ -1,12 +1,11 @@
 'use client'
 
 import { tableHeader } from '../../utils/utils'
-import { ArrowDown } from '../../utils/ArraowDown';
+import { ArrowDown } from '../../../public/assets/icons/ArrowDown';
 import PaginationButtons from './PaginationButtons';
 import { SkeletonLoader } from '..';
 import Card from './Card';
 import { useContext } from 'react';
-import Link from 'next/link';
 import { PeepContext, PeepContextType } from '@/context/peep.context';
 
 
