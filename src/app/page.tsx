@@ -4,7 +4,7 @@ import {useContext} from 'react'
 import Image from 'next/image'
 import { PeepContext, PeepContextType } from '@/context/peep.context'
 import { Header, Table, UserSearch, UserFilter, Button, Overlay } from "@/components"
-import filterIcon from '../../public/assets/icons/FilterIcon.svg'
+import filterIcon from '../../public/assets/icons/filterIcon.svg'
 
 export default function Home() {
     const {openFilter, setOpenFilter} = useContext(PeepContext) as PeepContextType;
